@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#app',
+  el: '#app-1',
   data: {
     message: 'Hello Vue!'
 
@@ -82,5 +82,182 @@ var app7 = new Vue({
 })
 
 
+new Vue({
+  el: '#hw',
+  data: {
+    title: 'Hello World!'
+  }
+});
+
+
+//computed watch
+  //below is ok for small stuff, ...
+new Vue({
+    el: '#app1',
+    data: {
+      counter: 0,
+      result: ''
+    }, 
+    methods:{
+      increase: function(){
+        this.counter++;
+        this.result=this.counter > 5 ? "greater than 5" : "less than 5";
+      },
+        decrease: function(){
+        this.counter--;
+        this.result=this.counter > 5 ? "greater than 5" : "less than 5";
+      }
+    }
+});
+  //but better would be ...
+new Vue({
+  el: '#app2',
+  data: {
+    counter: 0,
+    secondCounter: 0
+  },
+  watch:{
+    counter: function(value){
+      var vm = this;
+      setTimeout(function(){
+        vm.counter = 0;
+      },2000)
+    }
+  },
+  computed:{
+    output: function(){
+      console.log("computed");
+      return this.counter > 5 ? "greater than 5" : "less than 5";
+    }
+  },
+  methods: {
+    result: function(){
+      console.log("method");
+      return this.counter > 5 ? "greater than 5" : "less than 5";
+    }
+  }
+})
+
+//CSS STYLING
+//basics
+new Vue({
+  el: "#css1",
+  data: {
+    attachRed: false
+  }
+});
+//objects
+/*clicking on 1 toggles 1 btwn red and not red but also affects 2 and it now toggles blue red.
+This is ok for a couple of classes, but it could get unwieldy, so objects come into play.*/
+new Vue({
+  el: "#css2",
+  data: {
+    attachRed: false
+  }
+});
+// Same results as above but takes the object out of inline and lets Vue take over
+new Vue({
+  el: "#css2b",
+  data: {
+    attachRed: false
+  },
+  computed: {
+    divColors: function(){
+      return{
+        red: this.attachRed,
+        blue: !this.attachRed
+      }
+    }
+  }
+});
+//using names
+new Vue({
+  el: "#css3",
+  data: {
+    attachRed: false,
+    color: 'red'
+  },
+  computed: {
+    divColors: function(){
+      return{
+        red: this.attachRed,
+        blue: !this.attachRed
+      }
+    }
+  }
+});
+
+new Vue({
+  el: "#css3b",
+  data: {
+    attachRed: false,
+    color: 'aqua'
+  },
+  computed: {
+    divColors: function(){
+      return{
+        red: this.attachRed,
+        blue: !this.attachRed
+      }
+    }
+  }
+});
+
+//setting styles dynamically withOUT classes
+new Vue({
+  el: "#css4",
+  data: {
+    color: 'yellow',
+    width: 100
+  },
+  computed: {
+    myStyle: function(){
+      return{
+        backgroundColor: this.color,
+        width: this.width + 'px'
+      }
+    }
+  }
+})
+
+//EXERCISES
+new Vue({
+        el: '#exercise',
+        data: {
+            value: 0,
+            duration: 5000
+
+
+        },
+        // 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) 
+        watch:{
+          
+          value: function(e){
+            var that = this;
+            setTimeout(function(){
+              that.value = 0;
+            }, that.duration);
+
+          }
+
+        },
+        computed:{
+          result: function(){
+            return this.value > 50 ? "Yes!" : "Nope!"
+          }
+        },
+        methods:{
+
+          userTime: function(e){
+            var choice = e.target.value;
+            if(choice > 10 || choice < 1){
+              alert("Enter a number from 1 to 10 only.");
+            }else {
+              this.duration = choice * 1000;
+              console.log(this.duration);
+            }
+            
+          }
+        }});
 
 

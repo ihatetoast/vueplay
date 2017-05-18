@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Vue-torial</title>
-		<script src="https://unpkg.com/vue"></script>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<header id="top">
@@ -16,10 +16,14 @@
 		<ul>
 			<li><a href="#basics">Basics</a></li>
 			<li><a href="#components">Components</a></li>
+			<li><a href="#udemy-tutorial-1">Vue JS 2 The complete guide (tutorial)</a></li>
+			<li><a href="#styling">Styling with VueJS</a></li>
+
+			<li><a href="#exercises">Exercises</a></li>
 		</ul>
 		<section id="basics">
 			<h2>Vue Basics:</h2>
-			<div id="app">
+			<div id="app-1">
 	 			 {{ message }}
 			</div>
 			<!-- The v-bind attribute you are seeing is called a directive.  -->
@@ -74,8 +78,114 @@
 			</div>
 			<p>Back to <a href="#top">top</a></p>
 		</section>
-	
+		<section id="udemy-tutorial-1">
+			<div id="hw">
+				<p>{{ title }}</p>
+			</div>
+			<h3>Computed and Watch</h3>
+			<div id="app1">
+			  <p>this is okay for small stuff: </p>
+			  <button v-on:click="increase">Increase</button>
+			  <button v-on:click="decrease">Decrease</button>
+			  <p>Counter: {{ counter }}</p>
+			  <p>Result: {{ result }}</p>
+			</div>
 
+			<div id="app2">
+			  <p>this would be better (option1):</p>
+			  <button v-on:click="counter++">Increase</button>
+			  <button v-on:click="counter--">Decrease</button>
+			  <button v-on:click="secondCounter++">Increase</button>
+			  <p>Counter 1: {{ counter }}</p>
+			  <p>Result: {{ result() }} | Output: {{ output }}</p>
+			  <p>Counter 2: {{ secondCounter }}</p>
+			</div>
+			<p>Back to <a href="#top">top</a></p>
+			<h1 id="styling">Styling with CSS</h1>
+			<h3>basic</h3>
+			<div id="css1">
+				<div class="demo" @click="attachRed=!attachRed" :class="{red:attachRed}">1</div>
+				<div class="demo" :class="{red:attachRed}">2</div>
+				<div class="demo">3</div>
+			</div>
+			<h3>using objects</h3>
+			<p>clicking on 1 toggles 2 btwn red and not red but also affects 1(itself) and it now toggles blue red.
+			This is ok for a couple of classes, but it could get unwieldy, so objects come into play. </p>
+			<h5>object inline</h5>
+			<div id="css2">
+				<div class="demo" @click="attachRed=!attachRed" :class="{red:attachRed, blue:!attachRed}">1</div>
+				<div class="demo" :class="{red:attachRed}">2</div>
+				<div class="demo">3</div>
+			</div>
+			<p>Same results as above but takes the object out of inline and lets Vue take over</p>
+			<h5>object in computed in view</h5>
+			<div id="css2b">
+				<div class="demo" @click="attachRed=!attachRed" :class="divColors">1</div>
+				<div class="demo" :class="{red:attachRed}">2</div>
+				<div class="demo">3</div>
+			</div>
+			<h3>Using Names</h3>
+			<p>When you don't want to decide IF an element gets a class but dynamically determine WHICH class an element gets.</p>
+			<div id="css3">
+				<div class="demo" @click="attachRed=!attachRed" :class="divColors">1</div>
+				<div class="demo" :class="{red:attachRed}">2</div>
+				<br>
+				<div class="demo" :class="color">3</div>
+				<input type="text" v-model="color">
+			</div>
+			<p>I can also apply more classes by putting them in an array. ex: type in various colors (violet, green, purple, etc.). 3 will change. Now click on 1. It will toggle red blue for the ones it's been doing for a while. no change to 3. but if you now empty the input field, the square</p>
+			<div id="css3b">
+				<div class="demo" @click="attachRed=!attachRed" :class="divColors">1</div>
+				<div class="demo" :class="{red:attachRed}">2</div>
+				<br>
+				<div class="demo" :class="[color,{red:attachRed} ]">3</div>
+				<input type="text" v-model="color">
+			</div>
+			<p>Back to <a href="#top">top</a></p>
+			<h3>Setting styles dynamically withOUT CSS classes</h3>
+			<div id="css4">
+				<div class="demo" :style="{backgroundColor: color}"></div>
+				<div class="demo" :style="myStyle"></div>
+				<div class="demo" :style="[myStyle, {height: width +'px'}]"></div>
+				<hr>
+				<p>changes color of left and middle</p>
+				<input type="text" v-model="color">
+				<p>changes width of middle (would be good for a progress bar</p>
+				<input type="text" v-model="width">
+			</div>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<!-- ********* -->
+			<!-- EXERCISES -->
+			<!-- ********* -->
+			<hr>	
+			<h1>exercise area</h1>
+			<hr>
+				<div id="exercises">
+			    <!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 37 - you can change "value" with the buttons. Print 'done' once you did it -->
+
+				    <div>
+				        <p>Current Value: {{ value }}</p>
+				        <p>Choose a reset time between 1 and 10 inclusive (default is 5s):</p>
+				        <input type="number" min=1 max=10 @input="userTime">
+				    </div>
+				    <div>
+				        <button @click="value += 5">Add 5</button>
+				        <button @click="value += 1">Add 1</button>
+				        <p>Are you there yet? {{ result }}</p>
+				    </div>
+				    <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
+				    
+			</div>
+
+
+			
+			<p>Back to <a href="#top">top</a></p>
+	</section>
 		
 		<script src="main.js"></script>
 
