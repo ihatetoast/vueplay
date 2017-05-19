@@ -4,7 +4,9 @@
 		<meta charset="UTF-8">
 		<title>Vue-torial</title>
 		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Shadows+Into+Light+Two" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
+
 	</head>
 	<body>
 		<header id="top">
@@ -108,7 +110,7 @@
 				<div class="demo" :class="{red:attachRed}">2</div>
 				<div class="demo">3</div>
 			</div>
-			<h3>using objects</h3>
+			<h3>Using objects</h3>
 			<p>clicking on 1 toggles 2 btwn red and not red but also affects 1(itself) and it now toggles blue red.
 			This is ok for a couple of classes, but it could get unwieldy, so objects come into play. </p>
 			<h5>object inline</h5>
@@ -163,11 +165,11 @@
 			<!-- EXERCISES -->
 			<!-- ********* -->
 			<hr>	
-			<h1>exercise area</h1>
+			<h1 id="exercises">exercise area</h1>
 			<hr>
-				<div id="exercises">
+				<div id="exercise-3">
 			    <!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 37 - you can change "value" with the buttons. Print 'done' once you did it -->
-
+					<h3>Exercise 3</h3>
 				    <div>
 				        <p>Current Value: {{ value }}</p>
 				        <p>Choose a reset time between 1 and 10 inclusive (default is 5s):</p>
@@ -178,14 +180,55 @@
 				        <button @click="value += 1">Add 1</button>
 				        <p>Are you there yet? {{ result }}</p>
 				    </div>
-				    <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
-				    
-			</div>
+				    <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->    
+				</div>
 
+				<div id="exercise-4">
+					<h3>Exercise 4</h3>
+					  <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+					  <div>
+					    <button @click="startEffect">Start Effect</button>
+					    <div id="effect" :class="effects" ></div>
+					  </div>
+					  <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+					  <div :class="[fancy, playful]">I got no class :(</div>
+					  <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+					  <div>
+					  	<p>Enter a class: square, circle, rectangle, or rhombus.</p>
+					    <input type="text" v-model="shape">
+					    <div class="result" :class="shape"></div>
+					  </div>
+					  <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+						<div>
+							<p>Enter a class. You may choose one from each list</p>
+							<ul>
+							<li>quare, circle, rectangle, rhombus</li>
+							<li>red, pink, black, brown, tan, blue, green, purple, yellow, violet, orange, chartreuse, aqua</li>
+							</ul>
+							<input type="text" v-model="userChoice">
+							<p>If you want to clear the smudge, delete 	&ldquo;smudge&rdquo;:</p>
+							<input type="text" v-model="isSmudged">
+							<div class="space" :class="[userChoice, {smudge: isSmudged}]">*</div>
+						</div>
+					  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+					  <!-- <div>
+					    <input type="text">
+					    <div></div>
+					  </div> -->
+					  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+					  <!-- <div>
+					    <button v-on:click="startProgress">Start Progress</button>
+					    <div></div>
+					  </div> -->
+					</div>
 
-			
 			<p>Back to <a href="#top">top</a></p>
 	</section>
+	<br>
+			<br>
+			<br>
+			<br>
+			<br>
 		
 		<script src="main.js"></script>
 

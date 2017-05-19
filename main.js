@@ -222,24 +222,19 @@ new Vue({
 
 //EXERCISES
 new Vue({
-        el: '#exercise',
+        el: '#exercise-3',
         data: {
             value: 0,
             duration: 5000
-
-
         },
         // 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) 
         watch:{
-          
           value: function(e){
             var that = this;
             setTimeout(function(){
               that.value = 0;
             }, that.duration);
-
           }
-
         },
         computed:{
           result: function(){
@@ -247,7 +242,6 @@ new Vue({
           }
         },
         methods:{
-
           userTime: function(e){
             var choice = e.target.value;
             if(choice > 10 || choice < 1){
@@ -255,9 +249,33 @@ new Vue({
             }else {
               this.duration = choice * 1000;
               console.log(this.duration);
-            }
-            
+            }   
           }
         }});
 
+new Vue({
+  el: '#exercise-4',
+  data: {
+    effects: {
+      highlight: false,
+      shrink: true
+    },
+    fancy: 'deco',
+    playful: 'scribble',
+    shape: '',
+    userChoice: '',
+    isSmudged: 'smudge'
+  },
+  methods: {
+    startEffect: function() {
+      console.log("start effect fired.")
+      var ths = this;
+      setInterval(function(){
+        ths.effects.highlight = ! ths.effects.highlight;
+        ths.effects.shrink = ! ths.effects.shrink;
+      }, 5000)
+    }
+  
+  }
+});
 
