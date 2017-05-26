@@ -260,6 +260,12 @@ new Vue({
       highlight: false,
       shrink: true
     },
+    ktStyle:{
+      color: '#DDD92A',
+      width: '100px',
+      height: '50px'
+
+    },
     fancy: 'deco',
     playful: 'scribble',
     shape: '',
@@ -274,7 +280,17 @@ new Vue({
         ths.effects.highlight = ! ths.effects.highlight;
         ths.effects.shrink = ! ths.effects.shrink;
       }, 5000)
-    }
+    },
+    startProgress: function(){
+        var ths = this;
+        var width=0;
+        setInterval(function(){
+          width = width + 1;
+          ths.progressBar.width = width + 'px';
+          
+        },100);
+        
+     }
   
   }
 });

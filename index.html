@@ -211,16 +211,18 @@
 							<div class="space" :class="[userChoice, {smudge: isSmudged}]">*</div>
 						</div>
 					  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
-					  <!-- <div>
-					    <input type="text">
-					    <div></div>
-					  </div> -->
+					  <div>
+    					<input type="text" v-model="ktStyle.color">
+    					<div v-bind:style="ktStyle">My text should be bright green</div>
+  					</div>
+   					<hr/>
 					  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
-					  <!-- <div>
-					    <button v-on:click="startProgress">Start Progress</button>
-					    <div></div>
-					  </div> -->
-					</div>
+					   <div>
+   							 <button v-on:click="startProgress">Start Progress</button>
+   							<div v-bind:class="['progBar']" v-bind:style='progressBar'></div>
+						
+						</div>
+			</div> 
 
 			<p>Back to <a href="#top">top</a></p>
 	</section>
