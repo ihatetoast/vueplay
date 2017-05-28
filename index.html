@@ -171,6 +171,7 @@
 				<h2>v-if controls also what is nested:</h2>
 				<p v-if='show'>You can see this sentence: <span>I am v-iffy</span></p>
 				<p v-else='show'>And now you can see this other sentence: <span>I am v-elsey</span></p>
+				<h2>v-else swapped in when v-if is set to false:</h2>
 				<template v-if='show'>
 					<h1>I am a big-ass heading</h1>
 					<p>I'm a parallel p that is grouped with the heading</p>
@@ -179,10 +180,46 @@
 				</template>
 				<button @click="show=!show">Make that go away</button>
 				<p>Do you still see the stuff above? Oh, and check out the dev tools. Template is not rendered in the DOM. No divvy side effects.</p>
+				<p>You can also use v-show if you want to keep that element in the DOM but just display: none when button is clicked.</p>
 
 			</div>
+			<hr>
+			<hr>
+			<h3>rendering lists with v-for</h3>
+			<div id="lists-vfor">
+				<p>I am a list created by iterating over an array on the vueJS side of things</p>
+				<p>v-for="ingredient in ingredients" and then {{pet}} and {{i}}</p>
+				<ul>
+					<li v-for="ingredient in ingredients">{{ ingredient }}</li>
+				</ul>
+				<h3>If I want to include the index of the list item, I use ()s</h3>
+				<p>v-for="(pet, i) in pets"</p>
+				<ul>
+					<li v-for="(pet, i) in pets">{{ pet }} is at position {{ i }}</li>
+				</ul>
+			
+			<hr>
+				<h3>Alternative v-for syntax</h3>
+				<p>Use a template to put the items from an array in different elements:</p>
+				<h1>My pets:</h1>	
+				<template v-for="(pet, idx) in pets">
+					<h3>{{ pet }}</h3>	
+					<p><span>{{idx+1}}.</span> Name: {{ pet }}</p>	
+				</template>
 
-
+			<hr>
+				<h3>Looping through objects</h3>
+				<ul>
+					<li v-for="person in persons">
+						<div v-for="(val, key) in person">{{ key }} is {{ val }}</div>
+					</li>
+				</ul>
+			<hr>
+				<h3>looping through numbers</h3>
+				<p>v-for="n in 50"</p>
+				<span v-for="n in 50">{{ n }} </span>
+			</div>
+			
 			<br>
 			<br>
 			<br>
@@ -264,7 +301,50 @@
    							<div v-bind:class="['progBar']" v-bind:style='progressBar'></div>
 						
 						</div> -->
-			</div> 
+
+
+			<!-- </div>  -->
+
+
+
+			<div id="exercise-5">
+			  <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+			  <div>
+			    <button @click="show=!show">Toggle</button>
+			    <p v-if="show">You either see me ...(v-iffy)</p>
+			    <p v-else="show">...or me (v-elsey)</p>
+			    <p v-show="show">You either see me ...(v-showy)</p>
+			    <p v-show="!show">...or me (v-showbangy)</p>
+			  </div>
+			  <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+			  <h2>The pets I've had:</h2>
+			  <ul>
+			    <li v-for="(pet, i) in pets">{{ i+1 }}) {{ pet }} is at index {{ i }}</li>
+			  </ul>
+			  <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+			  <h3>LoTR</h3>
+			  <ul>
+			    <li v-for="(values, key, idx) in myObject">
+			    	<div>{{ key }}: {{values}}. Location: index {{ idx }}</div>
+			    </li>
+			  </ul>
+			  <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+			  <h3>Test Data</h3>
+			  <ul>
+			    <li v-for="val in testData" >
+			    	<!-- is it an array? prototype! is the value an array use isArray-->
+			    	<template v-if="Array.isArray(val)">
+			    	<!-- if it is, to this: loop over array, put elem in li -->
+			    		<div>nested data:</div>
+			    		<ul>
+			    			<li v-for="idx in val"> {{ idx }} </li>
+			    		</ul>
+			    	</template>
+			    	<template v-else>{{ val }}</template>
+			    </li>
+			  </ul>
+			</div>
+
 
 			<p>Back to <a href="#top">top</a></p>
 	</section>

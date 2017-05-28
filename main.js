@@ -236,6 +236,20 @@ new Vue({
     show: true
   }
 })
+
+// Rendering lists with v-for
+new Vue({
+  el: "#lists-vfor",
+  data: {
+    ingredients: ["mustard", "chocolate", "liver", "frosting"],
+    pets:["Lorelei", "Scooby", "Zuni", "Sierra", "Tamale", "Fat Bastard", "Omo", "Fabian", "The George", "Spicy Pie", "TimTam"],
+    persons: [
+      {name: "Katy", age: 49, motorcycle: "Honda CB500F"},
+      {name: "Riss", age: 51, motorcycle: "Suzuki V-Strom"},
+      {name: "Gus", age: 51, motorcycle: "Honda Repsol"}
+    ]
+  }
+})
 /*
       <!-- *************************************************************** -->
       <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
@@ -345,4 +359,21 @@ new Vue({
   
 //   })
 // });
+new Vue({
+  el: '#exercise-5',
+  data: {
+    show: true,
+    pets:["Lorelei", "Scooby", "Zuni", "Sierra", "Tamale", "Fat Bastard", "Omo", "Fabian", "The George", "Spicy Pie", "TimTam"],
+    myObject: {
+      title: 'Lord of the Rings',
+      author: 'J.R.R. Tolkiens',
+      books: '3'
+    },
+    testData: {
+      name: 'TESTOBJECT', 
+      id: 10,
+      data: [1.67, 1.33, 0.98, 2.21]
+    }
+  }
+});
 
