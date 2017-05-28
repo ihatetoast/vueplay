@@ -155,12 +155,30 @@
 				<p>changes width of middle (would be good for a progress bar</p>
 				<input type="text" v-model="width">
 			</div>
+			<hr>
+			<hr>
 			<h3>Conditional rendering with v-if</h3>
 			<div id="conditional-vif">
 				<p v-if='show'>You can see this sentence: I am v-iffy</p>
 				<p v-else='show'>And now you can see this other sentence: I am v-elsey</p>
 				<button @click="show=!show">Now you don&apos;t</button>
 				<p>Do you still see the sentence above?</p>
+
+			</div>
+			<hr>
+			<h3>Alternative v-if syntax</h3>
+			<div id="alternative-vif">
+				<h2>v-if controls also what is nested:</h2>
+				<p v-if='show'>You can see this sentence: <span>I am v-iffy</span></p>
+				<p v-else='show'>And now you can see this other sentence: <span>I am v-elsey</span></p>
+				<template v-if='show'>
+					<h1>I am a big-ass heading</h1>
+					<p>I'm a parallel p that is grouped with the heading</p>
+					<p>I'm another parallel p that is grouped with the heading</p>
+					<p>We will all disappear with the click of the button.</p>
+				</template>
+				<button @click="show=!show">Make that go away</button>
+				<p>Do you still see the stuff above? Oh, and check out the dev tools. Template is not rendered in the DOM. No divvy side effects.</p>
 
 			</div>
 

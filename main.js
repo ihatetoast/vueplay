@@ -228,6 +228,14 @@ new Vue({
   }
 })
 
+
+//conditional rendering with v-if
+new Vue({
+  el: "#alternative-vif",
+  data: {
+    show: true
+  }
+})
 /*
       <!-- *************************************************************** -->
       <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
