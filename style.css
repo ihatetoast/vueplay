@@ -121,4 +121,12 @@ html {
   line-height: 3em;
   text-align: center; }
 
+.bruised {
+  box-shadow: 0px 0px 4px 4px violet; }
+
+.progBar {
+  width: 50px;
+  height: 10px;
+  border: 1px solid black; }
+
 /*# sourceMappingURL=style.css.map */

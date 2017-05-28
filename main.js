@@ -220,78 +220,121 @@ new Vue({
   }
 })
 
-//EXERCISES
+//conditional rendering with v-if
 new Vue({
-        el: '#exercise-3',
-        data: {
-            value: 0,
-            duration: 5000
-        },
-        // 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) 
-        watch:{
-          value: function(e){
-            var that = this;
-            setTimeout(function(){
-              that.value = 0;
-            }, that.duration);
-          }
-        },
-        computed:{
-          result: function(){
-            return this.value > 50 ? "Yes!" : "Nope!"
-          }
-        },
-        methods:{
-          userTime: function(e){
-            var choice = e.target.value;
-            if(choice > 10 || choice < 1){
-              alert("Enter a number from 1 to 10 only.");
-            }else {
-              this.duration = choice * 1000;
-              console.log(this.duration);
-            }   
-          }
-        }});
-
-new Vue({
-  el: '#exercise-4',
+  el: "#conditional-vif",
   data: {
-    effects: {
-      highlight: false,
-      shrink: true
-    },
-    ktStyle:{
-      color: '#DDD92A',
-      width: '100px',
-      height: '50px'
-
-    },
-    fancy: 'deco',
-    playful: 'scribble',
-    shape: '',
-    userChoice: '',
-    isSmudged: 'smudge'
-  },
-  methods: {
-    startEffect: function() {
-      console.log("start effect fired.")
-      var ths = this;
-      setInterval(function(){
-        ths.effects.highlight = ! ths.effects.highlight;
-        ths.effects.shrink = ! ths.effects.shrink;
-      }, 5000)
-    },
-    startProgress: function(){
-        var ths = this;
-        var width=0;
-        setInterval(function(){
-          width = width + 1;
-          ths.progressBar.width = width + 'px';
-          
-        },100);
-        
-     }
-  
+    show: true
   }
-});
+})
+
+/*
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      <!-- *************************************************************** -->
+      <!--   EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES EXERCISES   -->
+      <!-- *************************************************************** -->
+      */
+// new Vue({
+//         el: '#exercise-3',
+//         data: {
+//             value: 0,
+//             duration: 5000
+//         },
+//         // 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) 
+//         watch:{
+//           value: function(e){
+//             var that = this;
+//             setTimeout(function(){
+//               that.value = 0;
+//             }, that.duration);
+//           }
+//         },
+//         computed:{
+//           result: function(){
+//             return this.value > 50 ? "Yes!" : "Nope!"
+//           }
+//         },
+//         methods:{
+//           userTime: function(e){
+//             var choice = e.target.value;
+//             if(choice > 10 || choice < 1){
+//               alert("Enter a number from 1 to 10 only.");
+//             }else {
+//               this.duration = choice * 1000;
+//               console.log(this.duration);
+//             }   
+//           }
+//         }});
+
+// new Vue({
+//   el: '#exercise-4',
+//   data: {
+//     effects: {
+//       highlight: false,
+//       shrink: true
+//     },
+//     ktStyle:{
+//       color: '#DDD92A',
+//       width: '100px',
+//       height: '50px'
+
+//     },
+//     fancy: 'deco',
+//     playful: 'scribble',
+//     shape: '',
+//     userChoice: '',
+//     isSmudged: 'smudge'
+//   },
+//   methods: {
+//     startEffect: function() {
+//       console.log("start effect fired.")
+//       var ths = this;
+//       setInterval(function(){
+//         ths.effects.highlight = ! ths.effects.highlight;
+//         ths.effects.shrink = ! ths.effects.shrink;
+//       }, 5000)
+//     },
+//     startProgress: function(){
+//         var ths = this;
+//         var width=0;
+//         setInterval(function(){
+//           width = width + 1;
+//           ths.progressBar.width = width + 'px';
+          
+//         },100);
+        
+//      }
+
+//     //  startProgress: function() {
+//     //   var vm = this;
+      
+//     //   this.stop = setInterval(function() {
+//     //     if ( vm.loadingProgress >= 100 ) {
+//     //         clearInterval(vm.stop);
+//     //       }
+//     //     vm.loadingProgress += 10;
+//     //   }, 1000);
+//     // },
+//     // resetProgress: function () {
+//     //   this.loadingProgress = 0;
+//     //   clearInterval(this.stop);
+//     // }
+  
+  
+//   })
+// });
 
