@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Vue playground</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+			<input type="text" v-on:input="changeTitle">
+			<p>{{ title }}</p>
+			<hr>
+			<p>Counter: {{ counter }}</p>
+			<button v-on:click="incCtr1()">Increase by 1</button>
+			<button v-on:click="incCtr2()">Increase by 2</button>
+			<button v-on:click="incCtr(5, $event)">Increase by my amount</button>
+			<hr>
+			<p v-on:mousemove="updateCoords">These are my mouse coords: {{ x }} / {{ x }}</p>
+			<hr>
+			<p>This is spammy! It alerts for keyup</p>
+			<input type="text" v-on:keyup="alertMe">
+			<p>This is not spammy as it is specific to alert with the enter key: </p>
+			<input type="text" v-on:keyup.enter="alertMeEnter">
+			<p>This is not spammy as it is specific to alert with a spacebar: </p>
+			<input type="text" v-on:keyup.space="alertMeSpace">
+			<hr>
+			<button v-on:click="counter2 ++">Increase counter 2 </button>
+			<p>Counter 2: {{ counter2 * 2 > 40 ? 'Greater than 40' : 'Less than 40'}}</p>
+			<hr>
+			<input type="text" v-model="name">
+			<p>{{ name }}</p>
+			<hr>
+			<hr>
+			<h3>Dynamic styling with css classes</h3>
+			<div 
+			class="demo" 
+			@click="attachPink = !attachPink"
+			:class="{pink: attachPink, orange: !attachPink}"></div>
+			<!-- compare the above obj wiht the div below -->
+			<div 
+			class="demo" 
+			@click="attachPink = !attachPink"
+			:class="divClasses"></div>
+			<div class="demo" :class="{pink: attachPink}"></div>
+			<hr>
+			<p>What color should this div be? Orange, pink, blue, magenta, purple, red, green, or yellow? </p>
+			<div class="demo" :class="[color, {pink: attachPink}]"></div>
+			<br>
+			<input type="text" v-model="color">
+			<hr>
+			<p>What color should this div be? Use hex or rgb because this is changing the style, not setting a class </p>
+			<div class="demo" :style="{'background-color': color2}"></div>
+			<div class="demo demo2" :style="{'border-color': color2}"></div>
+			<div class="demo" :style="myStyles"></div>
+			<div class="demo" :style="[myStyles, {height: width + 'px'}]"></div>
+			<input type="text" v-model="color2">
+			<input type="text" v-model="width">
+
+		</div>
+		
+		<div id="app2">
+			<p v-if="show">Beep!</p>
+			<p v-else>Boop!</p>
+			<button @click="show = !show">Beepity Boop</button>
+		</div>
+	
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'Hello, World!',
+				name: 'katy',
+				counter: 0,
+				counter2: 0,
+				x: 0,
+				y:0,
+				attachPink: false,
+				color: 'orange',
+				color2: 'blue',
+				width: 100
+			},
+			computed: {
+				divClasses: function(){
+					return {
+						pink: this.attachPink,
+						orange: !this.attachPink
+					}
+				},
+				myStyles: function(){
+					return {
+						width: this.width + 'px',
+						backgroundColor: this.color
+					}
+				}
+			},
+			methods: {
+				changeTitle: function(e){
+					this.title = e.target.value;
+				},
+				incCtr: function(step, event){
+					this.counter = this.counter + step;
+				},
+				incCtr1: function(){
+					this.counter ++;
+				},
+				incCtr2: function(){
+					this.counter =this.counter+2;
+				},
+				updateCoords: function(e){
+					this.x = e.clientX;
+					this.y = e.clientY;
+				},
+				alertMe: function(){
+					alert("This is spammy")
+				},
+				alertMeEnter: function(){
+					alert("You hit enter. You big girl now.")
+				},
+				alertMeSpace: function(){
+					alert("You hit spacebar")
+				}
+
+			}
+		});
+		new Vue({
+			el: "#app2",
+			data: {
+				show: true
+			}
+
+		})
+	</script>
+	</body>
+</html>

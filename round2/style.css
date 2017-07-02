@@ -1,0 +1,43 @@
+#app{
+	padding: 1em;
+	background-color: rgb(96%, 89%, 78%);
+}
+#app2{
+	padding: 1em;
+	background-color: rgb(78%, 85%, 83%);
+}
+.demo {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(20%, 23%, 27%);
+	display: inline-block;
+	margin: 10px;
+}
+.demo2{
+	border-width: 2px;
+	border-style: dotted;
+}
+.orange {
+	background-color: rgb(95%, 47%, 28%);
+}
+.blue {
+	background-color: rgb(2%, 48%, 76%);
+}
+.pink {
+	background-color: rgb(96%, 35%, 47%);
+}
+.magenta{
+	background-color: rgb(64%, 0%, 67%);
+}
+.purple{
+	background-color: rgb(17%, 2%, 31%);
+}
+.red{
+	background-color: rgb(84%, 14%, 24%);
+}
+.green {
+	background-color:  rgb(51%, 73%, 5%);
+}
+.yellow {
+	background-color: rgb(100%, 79%, 23%);
+}
