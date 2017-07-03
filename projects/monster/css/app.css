@@ -1,7 +1,23 @@
 .text-center {
     text-align: center;
 }
+.opponents {
+    font-size: 1.5em;
+    font-family: 'Luckiest Guy', cursive;
+}
+.opponentBox{
+    font-size: 2em;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-top: 10px;
+    line-height: 100px;
 
+}
+
+img{
+    width: 100px;
+}
 .healthbar {
     width: 80%;
     height: 40px;
@@ -36,16 +52,19 @@
 }
 
 .log ul .player-turn {
-    color: blue;
-    background-color: #e4e8ff;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(5%, 17%, 33%);
+    background-color: rgb(100%, 86%, 55%);
 }
 
 .log ul .monster-turn {
-    color: red;
-    background-color: #ffc0c1;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(5%, 17%, 33%);
+    background-color: rgb(77%, 87%, 55%);
 }
 
 button {
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     background-color: #eee;
     padding: 12px;
@@ -78,11 +97,11 @@ button {
 }
 
 #heal {
-    background-color: #aaffb0;
+    background-color: #2EB6F0;
 }
 
 #heal:hover {
-    background-color: #76ff7e;
+    background-color: #0097d8;
 }
 
 #give-up {

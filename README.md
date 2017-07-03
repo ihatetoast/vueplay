@@ -11,3 +11,6 @@ Code on, Obi wan!
 
 Katy
 ihatetoast
+
+# Projects
+* [Monster Slayer]('http://ihatetoast-vuejs-monster-slayer.surge.sh/')
