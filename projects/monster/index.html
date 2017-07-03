@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"> {{ userLife }}
+
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"> {{ monsterLife }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section v-if="start" class="row controls">
+        <div class="small-12 columns">
+            <button @click="start = false" id="start-game">START NEW GAME</button>
+        </div>
+    </section>
+    <section v-else class="row controls">
+        <div class="small-12 columns">
+            <button @click='attack()' id="attack">ATTACK</button>
+            <button id="special-attack">SPECIAL ATTACK</button>
+            <button id="heal">HEAL</button>
+            <button @click='giveup()' id="give-up">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log">
+        <div class="small-12 columns">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        start: true,
+        userLife: 100,
+        monsterLife: 100
+    },
+    methods: {
+        attack: function(){
+            randoAtt = Math.floor(Math.random()*10);
+            randoHit = Math.floor(Math.random()*10);
+            this.userLife = this.userLife - randoHit;
+            this.monsterLife = this.monsterLife - randoAtt;
+            console.log(`randoHit is ${randoHit} and randoAtt is ${randoAtt}`);
+        },
+        giveup: function(){
+            this.start = true;
+            this.userLife = 100;
+            this.monsterLife = 100
+        }
+    }
+})
+</script>
+</body>
+</html>
