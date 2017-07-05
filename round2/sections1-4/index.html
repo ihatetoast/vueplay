@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Vue playground</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+			<input type="text" v-on:input="changeTitle">
+			<p>{{ title }}</p>
+			<hr>
+			<p>Counter: {{ counter }}</p>
+			<button v-on:click="incCtr1()">Increase by 1</button>
+			<button v-on:click="incCtr2()">Increase by 2</button>
+			<button v-on:click="incCtr(5, $event)">Increase by my amount</button>
+			<hr>
+			<p v-on:mousemove="updateCoords">These are my mouse coords: {{ x }} / {{ x }}</p>
+			<hr>
+			<p>This is spammy! It alerts for keyup</p>
+			<input type="text" v-on:keyup="alertMe">
+			<p>This is not spammy as it is specific to alert with the enter key: </p>
+			<input type="text" v-on:keyup.enter="alertMeEnter">
+			<p>This is not spammy as it is specific to alert with a spacebar: </p>
+			<input type="text" v-on:keyup.space="alertMeSpace">
+			<hr>
+			<button v-on:click="counter2 ++">Increase counter 2 </button>
+			<p>Counter 2: {{ counter2 * 2 > 40 ? 'Greater than 40' : 'Less than 40'}}</p>
+			<hr>
+			<input type="text" v-model="name">
+			<p>{{ name }}</p>
+			<hr>
+			<hr>
+			<h3>Dynamic styling with css classes</h3>
+			<div 
+			class="demo" 
+			@click="attachPink = !attachPink"
+			:class="{pink: attachPink, orange: !attachPink}"></div>
+			<!-- compare the above obj wiht the div below -->
+			<div 
+			class="demo" 
+			@click="attachPink = !attachPink"
+			:class="divClasses"></div>
+			<div class="demo" :class="{pink: attachPink}"></div>
+			<hr>
+			<p>What color should this div be? Orange, pink, blue, magenta, purple, red, green, or yellow? </p>
+			<div class="demo" :class="[color, {pink: attachPink}]"></div>
+			<br>
+			<input type="text" v-model="color">
+			<hr>
+			<p>What color should this div be? Use hex, rgb, or HTML colors because this is changing the style, not setting a class </p>
+			<div class="demo" :style="{'background-color': color2}"></div>
+			<div class="demo demo2" :style="{'border-color': color2}"></div>
+			<div class="demo" :style="myStyles"></div>
+			<div class="demo" :style="[myStyles, {height: width + 'px'}]"></div>
+			<input type="text" v-model="color2">
+			<input type="text" v-model="width">
+
+		</div>
+		
+		<div id="app2">
+			<p v-if="show">Beep!</p>
+			<p v-else>Boop!</p>
+			<button @click="show = !show">Beepity Boop</button>
+			<hr>
+			<h1>Arrays</h1>
+			<h2>These things annoy me:</h2>
+			<ul>
+				<li v-for="pp in petPeeves">{{ pp }}</li>
+			</ul>
+			<h2>Let there be monkeys!: </h2>
+			<ul>
+				<li v-for="(monk,i) in monkeys">({{ i+1 }}) {{ monk }}</li>
+			</ul>
+			<p>Or, if I want the index and item on sibling / non-nested elements...</p>
+			<h2>Use the template. Whoo hoo!</h2>
+			<template v-for="(monkey, idx) in monkeys">
+				<h5>{{ idx + 1}}</h5>
+				<h6>{{ monkey }}</h6>
+			</template>
+			<hr>
+			<h1>Objects</h1>
+			<h2>Let&apos;s talk piggies and objects: </h2>
+			<ul>
+				<li v-for="piggie in piggies">
+					<span v-for="(value, key) in piggie">{{ key }}: {{ value }}, </span>
+				</li>
+			</ul>
+			<hr>
+			<h2>The members of the Wolverton Gang</h2>
+
+			<ul>
+				<li v-for="peep in peeps">
+					<div v-for="(val, key) in peep">
+						<h3 > {{ key }}: </h3> <span>{{ val }}</span>
+					</div>
+				</li>
+			</ul>
+			<hr>
+			<h3>Vue helps me count:</h3>
+			<span v-for="x in 10">{{ x }}, </span>
+		</div>
+	
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'Hello, World!',
+				name: 'katy',
+				counter: 0,
+				counter2: 0,
+				x: 0,
+				y:0,
+				attachPink: false,
+				color: 'orange',
+				color2: '#bada55',
+				width: 100
+			},
+			computed: {
+				divClasses: function(){
+					return {
+						pink: this.attachPink,
+						orange: !this.attachPink
+					}
+				},
+				myStyles: function(){
+					return {
+						width: this.width + 'px',
+						backgroundColor: this.color
+					}
+				}
+			},
+			methods: {
+				changeTitle: function(e){
+					this.title = e.target.value;
+				},
+				incCtr: function(step, event){
+					this.counter = this.counter + step;
+				},
+				incCtr1: function(){
+					this.counter ++;
+				},
+				incCtr2: function(){
+					this.counter =this.counter+2;
+				},
+				updateCoords: function(e){
+					this.x = e.clientX;
+					this.y = e.clientY;
+				},
+				alertMe: function(){
+					alert("This is spammy")
+				},
+				alertMeEnter: function(){
+					alert("You hit enter. You big girl now.")
+				},
+				alertMeSpace: function(){
+					alert("You hit spacebar")
+				}
+
+			}
+		});
+		new Vue({
+			el: "#app2",
+			data: {
+				show: true,
+				petPeeves: ['mozzies', 'mean people', 'humble bragging', 'beer farts'],
+				monkeys: ["mantled howler", "spider", "capuchin", "macaque", "mandrill", "gelada", "pygmy marmoset", "emperor tamarin"],
+				piggies: [
+					{piggie: "Big toe", action: "went to the market", reason: "is biggest and can drive"},
+					{piggie: "Ring toe", action: "stayed home", reason: "is ring toe, so stays home and does sfa"},
+					{piggie: "Middle toe", action: "had roast beef", reason: "was hungry"},
+					{piggie: "Boring toe", action: "had none", reason: "is vegetarian"},
+					{piggie: "Pinkie toe", action: "went wee wee wee all the way home", reason: "is an incontenent fool who drank too much coffee"},
+				],
+				peeps: [
+					{name: "IHateToast", age: 49, appearance: 'red hair, old and haggard', tude: 'fretter'},
+					{name: "Fabian", age: 9, appearance: 'blue fur, missing a front leg', tude: 'serious and loyal'},
+					{name: "The George", age: 4, appearance: 'orange, with tail, paw, and ear foofs', tude: 'acts like drunk Farrah Fawcett, loves everyone'},
+					{name: "TimTam", age: 1, appearance: 'black with white paws', tude: 'doesn\t care for your crap'},
+					{name: "Spicy Pie", age: 1, appearance: 'black and gold tabby stripes', tude: 'loves you, wants to be you, wants to live on your face'}
+				]
+			}
+
+		})
+	</script>
+	</body>
+</html>
