@@ -1,4 +1,9 @@
-new Vue ({
+//components
+// Vue.component('hello', {
+//   template: '<h1>Howdy hoody</h1>'
+// });
+
+var vm1 = new Vue ({
         el: "#app1",
         data: {
           title: "The VueJS Instance",
@@ -24,10 +29,30 @@ new Vue ({
           }
         }
 })
+//normal js
+setTimeout(function(){
+  vm1.title = "Changed by the timer";
+},5000)
 
-// new Vue({
-//   el: '#app2',
-//   data: {
-//     title: 'The Second Instance'
-//   }
-// })
+var vm2 = new Vue({
+  el: '#app2',
+  data: {
+    title: 'The Second Instance'
+  },
+  methods: {
+    changeTitle: function(){
+      vm1.title = "I have changed!";
+    }
+  }
+})
+
+var vm3 = new Vue ({
+  template: '<h1> Hello. I\'m here because of template property</h1>'
+    })
+
+vm3.$mount('#app3');
+
+
+
+
+
