@@ -2,7 +2,8 @@
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif; }
 
 *,
 *:before,
@@ -22,15 +23,19 @@ body {
   .box * {
     position: absolute; }
 
-.dAM {
+.dAM,
+.fIB {
   background: #fc9098; }
 
 .sB {
   background: #1a936f; }
 
 h1 {
-  font-family: "Lato", sans-serif;
-  margin-top: 0em; }
+  margin: 0em; }
+
+.bits {
+  color: #202b31;
+  margin: 1em 0 0 0; }
 
 .message {
   font-family: "Lato", sans-serif;
@@ -75,6 +80,9 @@ h1 {
   border-radius: 79px 136px 50px 50px / 56px 76px 25px 25px;
   z-index: 1; }
 
+#bot {
+  box-shadow: inset 0px 0px 32px 2px rgba(0, 0, 0, 0.65); }
+
 .pooMiddle {
   width: 62%;
   height: 30%;
@@ -83,6 +91,9 @@ h1 {
   background: #583e2a;
   border-radius: 164px 106px 150px 158px / 81px 76px 25px 48px;
   z-index: 2; }
+
+#mid {
+  box-shadow: inset 0px 0px 32px 3px rgba(0, 0, 0, 0.45); }
 
 .pooTop {
   width: 40%;
@@ -93,6 +104,9 @@ h1 {
   opacity: 1;
   border-radius: 164px 216px 109px 159px / 81px 80px 45px 41px;
   z-index: 3; }
+
+#top {
+  box-shadow: inset 0px 0px 22px 2px rgba(0, 0, 0, 0.25); }
 
 @media all and (max-width: 600px) {
   .box {

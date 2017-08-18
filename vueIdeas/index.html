@@ -7,7 +7,7 @@
 	<script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-	<h1>Data and Methods</h1>
+	<h1 class="bits">Data and Methods</h1>
 	<div id="dataAndMethods">
   <h2>Boop the Poop</h2>
   <p class="message"> {{ message }} <span class="message">Nastiness: {{ clicks }}% </span>
@@ -15,22 +15,38 @@
     <div class="pooTop" @click='topBoop'></div>
     <div class="pooMiddle" @click='midBoop'></div>
     <div class="pooBase" @click='botBoop'></div>
-    
   </div>
-</div>
-	<h1>Event @click</h1>
-	<div id="styleBind">
-  <h2>Cornify the poo pie</h2>
-  <p class="message"> {{ message }} <span class="message"> {{ clicks }}% </span>
-  <div class="box sB">
-    <div class="pooTop" @click='uniPoopTop' v-bind:style='styleTop'></div>
-    <div class="pooMiddle" @click='uniPoopMid' v-bind:style='styleMid'></div>
-    <div class="pooBase" @click='uniPoopBot' v-bind:style='styleBot'></div>
-    
-  </div>
-</div>
+	</div>
 	<hr/>
-	<h2>topic</h2>
+	<h1 class="bits">Event @click</h1>
+	<div id="styleBind">
+  	<h2>Cornify the poo pie</h2>
+  	<p class="message"> {{ message }} <span class="message"> {{ clicks }} units of unicorn </span>
+  	<div class="box sB">
+			<div class="pooTop" v-bind:id="top" @click='uniPoopTop' v-bind:style='styleTop'></div>
+			<div class="pooMiddle" v-bind:id="mid" @click='uniPoopMid' v-bind:style='styleMid'></div>
+			<div class="pooBase" v-bind:id="bot" @click='uniPoopBot' v-bind:style='styleBot'></div> 
+  	</div>
+	</div>
+	<hr/>
+	<h1 class="bits">Forms and 2-Way Binding</h1>
+	<!-- change to fib for form input binding in IDE version -->
+	<div id="fib">
+  	<h1>Form</h1>
+  	<h2>What is this?</h2>
+		<form>
+			<input type="checkbox" v-model="checkbox" /> <span style="font-size: 9px">I don&apos;t swear.</span>
+			<br/>
+			<input type="text" v-model="inputTxt" @keyup="guess" />
+		</form>
+  	<p>I think the image below is ... <span>{{ inputTxt }}</span></p>
+  	<p class="message"> {{ message }} </p>
+  	<div class="box fIB">
+			<div class="pooTop" id="top" ></div>
+			<div class="pooMiddle" id="mid"></div>
+			<div class="pooBase" id="bot" ></div>
+		</div>
+	</div>
 	<hr/>
 	<script src="./main.js"></script>
 </body>
