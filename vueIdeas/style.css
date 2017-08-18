@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  height: 100vh;
+  background: #d4d4da; }
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 300px; }
+  .box * {
+    position: absolute; }
+
+.dAM {
+  background: #fc9098; }
+
+.sB {
+  background: #1a936f; }
+
+h1 {
+  font-family: "Lato", sans-serif;
+  margin-top: 0em; }
+
+.message {
+  font-family: "Lato", sans-serif;
+  font-size: 1em; }
+
+.pooBase {
+  top: 60%;
+  left: 12%;
+  width: 75%;
+  height: 33%;
+  background: #4b282a;
+  background-image: linear-gradient(to bottom, rgba(187, 133, 88, 0.6) 0%, rgba(75, 40, 42, 0.7) 100%);
+  border-radius: 79px 136px 50px 50px / 56px 76px 25px 25px;
+  z-index: 1; }
+
+.pooMiddle {
+  width: 62%;
+  height: 30%;
+  left: 20%;
+  top: 50%;
+  background: #4b282a;
+  background-image: linear-gradient(to bottom, rgba(211, 184, 126, 0.4) 0%, rgba(75, 40, 42, 0.4) 100%);
+  border-radius: 164px 106px 150px 158px / 81px 76px 25px 48px;
+  z-index: 2; }
+
+.pooTop {
+  width: 40%;
+  height: 20%;
+  left: 35%;
+  top: 45%;
+  background: #4b282a;
+  background-image: linear-gradient(to bottom, rgba(187, 133, 88, 0.6) 0%, rgba(75, 40, 42, 0.7) 100%);
+  border-radius: 164px 216px 109px 159px / 81px 80px 45px 41px;
+  z-index: 3; }
+
+.pooBase {
+  top: 60%;
+  left: 12%;
+  width: 75%;
+  height: 33%;
+  background: #493327;
+  border-radius: 79px 136px 50px 50px / 56px 76px 25px 25px;
+  z-index: 1; }
+
+.pooMiddle {
+  width: 62%;
+  height: 30%;
+  left: 20%;
+  top: 50%;
+  background: #583e2a;
+  border-radius: 164px 106px 150px 158px / 81px 76px 25px 48px;
+  z-index: 2; }
+
+.pooTop {
+  width: 40%;
+  height: 20%;
+  left: 35%;
+  top: 45%;
+  background: #513d2e;
+  opacity: 1;
+  border-radius: 164px 216px 109px 159px / 81px 80px 45px 41px;
+  z-index: 3; }
+
+@media all and (max-width: 600px) {
+  .box {
+    width: 300px;
+    height: 250px; }
+
+  .subject {
+    width: 50px;
+    height: 50px; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+
+// colours
+$bg: rgb(212, 212, 218);
+$pooBase: rgb(75, 40, 42);
+//shapes & sizes
+$circle: 50%;
+$rounded: 50px;
+$size: 100px;
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+$mainFont: "Lato";
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+body {
+  height: 100vh;
+  background: $bg;
+}
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  & * {
+    position: absolute;
+  }
+}
+//boxes' backgrounds
+.dAM {
+  background: #fc9098;
+}
+.sB {
+  background: #1a936f;
+}
+h1 {
+  font-family: $mainFont, sans-serif;
+  margin-top: 0em;
+}
+
+//data and methods
+
+.message {
+  font-family: $mainFont, sans-serif;
+  font-size: 1em;
+}
+.pooBase {
+  top: 60%;
+  left: 12%;
+  @include wh(75%, 33%);
+  background: $pooBase;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(187, 133, 88, 0.6) 0%,
+    rgba(75, 40, 42, 0.7) 100%
+  );
+  border-radius: 79px 136px 50px 50px / 56px 76px 25px 25px;
+  z-index: 1;
+}
+
+.pooMiddle {
+  @include wh(62%, 30%);
+  left: 20%;
+  top: 50%;
+  background: $pooBase;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(211, 184, 126, 0.4) 0%,
+    rgba(75, 40, 42, 0.4) 100%
+  );
+  border-radius: 164px 106px 150px 158px / 81px 76px 25px 48px;
+  z-index: 2;
+}
+
+.pooTop {
+  @include wh(40%, 20%);
+  left: 35%;
+  top: 45%;
+  background: $pooBase;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(187, 133, 88, 0.6) 0%,
+    rgba(75, 40, 42, 0.7) 100%
+  );
+  border-radius: 164px 216px 109px 159px / 81px 80px 45px 41px;
+  z-index: 3;
+}
+//style binding
+
+.pooBase {
+  top: 60%;
+  left: 12%;
+  @include wh(75%, 33%);
+  background: #493327;
+  border-radius: 79px 136px 50px 50px / 56px 76px 25px 25px;
+  z-index: 1;
+}
+
+.pooMiddle {
+  @include wh(62%, 30%);
+  left: 20%;
+  top: 50%;
+  background: #583e2a;
+  border-radius: 164px 106px 150px 158px / 81px 76px 25px 48px;
+  z-index: 2;
+}
+
+.pooTop {
+  @include wh(40%, 20%);
+  left: 35%;
+  top: 45%;
+  background: #513d2e;
+  opacity: 1;
+  border-radius: 164px 216px 109px 159px / 81px 80px 45px 41px;
+  z-index: 3;
+}
+
+@media all and (max-width: 600px) {
+  .box {
+    width: 300px;
+    height: 250px;
+  }
+  .subject {
+    @include wh($size/2, $size/2);
+  }
+}
