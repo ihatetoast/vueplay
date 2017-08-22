@@ -17,6 +17,8 @@ import { eventBus } from '../main'
 				this.userAge = 49;
 				// this.$emit('ageWasEdited', this.userAge);
 				eventBus.$emit('ageWasEdited', this.userAge);
+				//if storing centrally:
+				//eventBus.changeAge(this.userAge);
 			}
 		}
 	}
@@ -27,3 +29,27 @@ import { eventBus } from '../main'
         background-color: lightgreen;
     }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

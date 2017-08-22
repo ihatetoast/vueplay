@@ -12,5 +12,9 @@ Code on, Obi wan!
 Katy
 ihatetoast
 
-# Projects
+## Projects
 * [Monster Slayer](http://ihatetoast-vuejs-monster-slayer.surge.sh/) 
+
+## Vue Ideas
+Small teachable units with the late middle schooler in mind. I think VueJS is lightweight enough to be taught to middle schoolers. It has a ease-in feel more than ReactJS. 
+Silly themes (poop, unicorns, etc.), but the target audience would be the tween / early teen.

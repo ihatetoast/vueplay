@@ -30,6 +30,9 @@ import { eventBus } from '../main'
 				this.$emit("nameWasReset", this.name);
 			}
 		},
+		//EVENT BUS
+		//should listen once component is created
+	
 		created(){
 			eventBus.$on('ageWasEdited', (age) => {
 				this.userAge = age;
