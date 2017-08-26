@@ -2,7 +2,8 @@
 	<div>
 		<div>
 			<slot name="h2Title"></slot>
-			<!-- slot below has default content which will show until it's named and somehting is passed to it. -->
+			<!-- slot below has default content which will show 
+			until it's named and somehting is passed to it. -->
 			<span style="color: #ccc" ><slot name="subtitle">Subtitles found here</slot></span>
 		</div>
 		<hr>
