@@ -10,6 +10,7 @@
                 <component :is="choice">
                     <h2 slot="introChoice">{{ introChoice }}</h2>
                     <h2 slot="introQuestion">{{ introQuestion }}</h2>
+                    
                     <p>default content</p>
                 </component>
                 
@@ -30,8 +31,6 @@
                 choice: "appQuestion",
                 introQuestion: "What will you get?",
                 introChoice: "You have chosen a ...",
-                titleFlower: "Aw, a flower"
-
             }
         },
         components: {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <slot name="introChoice"></slot>
-        <h3>Red cupcake</h3>
+        <h3>red cupcake</h3>
         <div class="holder cupcake">
         <img src="../assets/cupcake.svg" alt="a cupcake with red icing">
         <p>You got a cupcake! Awesome!! Unless you're avoiding sugar and gluten. Then bummer..</p>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <slot name="introChoice"></slot>
     <h3>blue daisy</h3>
     <div class="holder flower">

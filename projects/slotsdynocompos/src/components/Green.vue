@@ -1,7 +1,7 @@
 <template>
     <div>
     <slot name="introChoice"></slot>
-    <h3>Green ogre</h3>
+    <h3>green ogre</h3>
     <div class="holder ogre">
       <img src="../assets/ogre.svg" alt="a green ogre">
       <p>You got Olaf the Ogre. He's not pretty, but he's kind. Just misunderstood.</p>
