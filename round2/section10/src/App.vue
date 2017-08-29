@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-    	<app-header></app-header>
+    	<app-header :quoteCount="quoteArray.length" :maxQuotes="maxQuotes"></app-header>
 			<app-new-quote @quotationAdded="newQuote"></app-new-quote>
     	<app-quote-grid :quotes="quoteArray" @quotationDeleted="deleteQuotation"></app-quote-grid>
     	<div class="row">
@@ -29,6 +29,9 @@
         },
         methods: {
         	newQuote(quote){
+        		if(this.quoteArray.length>=10){
+        			return alert('Please delete a quotation before adding another.')
+        		}
         		this.quoteArray.push(quote);
         	},
         	deleteQuotation(index){
